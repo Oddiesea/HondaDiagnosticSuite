@@ -50,11 +50,11 @@ mod tests {
 
     #[test]
     fn an_m_vci_is_its_own_row_and_not_an_elm() {
-        let ports = [Port { device: "/dev/cu.usbserial-A6007dAe".into(), product: "M-VCI".into(), gd101: false, mvci: true }];
+        let ports = [Port { device: "/dev/cu.usbserial-A0000001".into(), product: "M-VCI".into(), gd101: false, mvci: true }];
         let l = adapter_list(&ports);
         let specs: Vec<&str> = l.iter().map(|(s, _)| s.as_str()).collect();
-        assert!(specs.contains(&"mvci:/dev/cu.usbserial-A6007dAe"));
+        assert!(specs.contains(&"mvci:/dev/cu.usbserial-A0000001"));
         assert!(specs.iter().all(|s| !s.starts_with("elm:") && !s.starts_with("elm-")), "{specs:?}");
-        assert_eq!(l.iter().find(|(s, _)| s.starts_with("mvci")).unwrap().1, "XHorse M-VCI · /dev/cu.usbserial-A6007dAe");
+        assert_eq!(l.iter().find(|(s, _)| s.starts_with("mvci")).unwrap().1, "XHorse M-VCI · /dev/cu.usbserial-A0000001");
     }
 }

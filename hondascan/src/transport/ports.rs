@@ -182,8 +182,8 @@ mod tests {
   | +-o AppleUSBFTDI  <class IOUserSerial, id 0x3>
   |   +-o IOSerialBSDClient  <class IOSerialBSDClient, id 0x4>
   |       {
-  |         "IOCalloutDevice" = "/dev/cu.usbserial-A6007dAe"
-  |         "IODialinDevice" = "/dev/tty.usbserial-A6007dAe"
+  |         "IOCalloutDevice" = "/dev/cu.usbserial-A0000001"
+  |         "IODialinDevice" = "/dev/tty.usbserial-A0000001"
   |       }
 +-o GD101@2  <class IOUSBHostDevice, id 0x5>
   | {
@@ -200,7 +200,7 @@ mod tests {
             ports_from_ioreg(text),
             vec![
                 ("/dev/cu.usbmodem1".into(), "e327".into(), "2534".into(), "GD101".into()),
-                ("/dev/cu.usbserial-A6007dAe".into(), "0403".into(), "6001".into(), "M-VCI".into()),
+                ("/dev/cu.usbserial-A0000001".into(), "0403".into(), "6001".into(), "M-VCI".into()),
             ]
         );
     }
